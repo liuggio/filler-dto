@@ -1,7 +1,9 @@
 Filler
 ======
 
-Retrieve and set properties from and to a (DTO)[http://en.wikipedia.org/wiki/Data_transfer_object] objects,
+**It helps you to bridge DTOs and Model Entities.**
+
+Set or retrieve properties from and to [DTO](http://en.wikipedia.org/wiki/Data_transfer_object) objects!
 
 ## Fast
 
@@ -74,6 +76,20 @@ class AddProductData
     public $c;
 }
 ```
+
+## Differences?
+
+**Not a great tool uh?**
+
+We needed it for an edge case,
+but then we have decided to release it  because
+if you are used to develop with the `Command` pattern, this lib could help you to develop faster app.
+
+More info at: [verraes:decoupling-symfony2-forms-from-entities](http://verraes.net/2013/04/decoupling-symfony2-forms-from-entities/)
+
+## Install
+
+`composer require liuggio/filler-dto dev-master`
 
 ## API
 
