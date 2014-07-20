@@ -9,7 +9,7 @@ trait PropertyTrait
      *
      * @param mixed $dto
      */
-    public function setPropertiesFrom($dto)
+    public function fillProperties($dto)
     {
         $arrToSet = array_intersect_key($this->_getProperties($dto), get_object_vars($this));
         foreach( $arrToSet as $strAttribute => $mixValue ) {
@@ -36,6 +36,10 @@ trait PropertyTrait
 
     private function _getProperties($dto)
     {
+        if (is_array($dto)) {
+            return $dto;
+        }
+
         if (in_array('Liuggio\Filler\PropertyTrait', class_uses($dto))) {
             return $dto->getAllProperties();
         }

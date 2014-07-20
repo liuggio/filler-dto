@@ -22,4 +22,6 @@ class PropertyTraitTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('public-private1-private2', $cart->getOneAndTwoAndThree());
     }
+
+
 } 

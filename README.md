@@ -3,7 +3,11 @@ Filler
 
 **It helps you to bridge DTOs and Model Entities.**
 
-Set or retrieve properties from and to [DTO](http://en.wikipedia.org/wiki/Data_transfer_object) objects!
+Fill or retrieve properties from and to [DTO](http://en.wikipedia.org/wiki/Data_transfer_object) objects!
+
+`filler-dto` on packagist
+
+[![Latest Stable Version](https://poser.pugx.org/liuggio/filler-dto/version.svg)](https://packagist.org/packages/liuggio/filler-dto) [![Latest Unstable Version](https://poser.pugx.org/liuggio/filler-dto/v/unstable.svg)](//packagist.org/packages/liuggio/filler-dto) [![Total Downloads](https://poser.pugx.org/liuggio/filler-dto/downloads.svg)](https://packagist.org/packages/liuggio/filler-dto)
 
 ## Fast
 
@@ -50,7 +54,7 @@ class Cart
 
     private function __construct($dto)
     {
-        $this->setPropertiesFrom($dto);
+        $this->fillProperties($dto);
     }
 
     public static function startShipping(StartShippingData $data)
@@ -77,9 +81,39 @@ class AddProductData
 }
 ```
 
-## Differences?
+## From Request
 
-**Not a great tool uh?**
+Do you want to map an object from the `Request`?
+
+``` php
+use Liuggio\Filler\ResponsePropertyTrait;
+
+class StartShippingDTO
+{
+    use ResponsePropertyTrait;
+
+    private $developer;
+
+    public function __construct(Request $request)
+    {
+        $this->fillPropertiesFromRequest($request);
+    }
+...
+}
+
+Class Controller
+{
+    public function startShippingAction(Request $request)
+    {
+        $startShipping = new StartShippingDTO($request);
+
+        if ($this->isValid($startShipping)) ...
+    }
+}
+```
+
+
+## Differences?
 
 We needed it for an edge case,
 but then we have decided to release it  because
@@ -91,16 +125,22 @@ More info at: [verraes:decoupling-symfony2-forms-from-entities](http://verraes.n
 
 `composer require liuggio/filler-dto dev-master`
 
-## API
+## API (not stable)
 
 ```
 trait PropertyTrait
-   public function setPropertiesFrom($dto)
-
+   fillProperties($dto)
    getAllProperties($filter = null)
-```
 
+trait ResponsePropertyTrait
+    fillPropertiesFromRequest(Request $request, $name = '')
+```
 
 ## Example
 
-Please have a look to the tests and tests/Fixtures folders :)
+Please have a look to the tests and [tests/Fixtures](./tests) folders :)
+
+## Compatibility
+
+- >= 5.4
+- hhvm

@@ -14,7 +14,7 @@ Class Cart
 
     public function __construct($dto)
     {
-        $this->setPropertiesFrom($dto);
+        $this->fillProperties($dto);
     }
 
     /**
