@@ -4,7 +4,7 @@ namespace Liuggio\Filler;
 
 use Symfony\Component\HttpFoundation\Request;
 
-trait ResponsePropertyTrait
+trait HTTPPropertyTrait
 {
     use PropertyTrait;
 

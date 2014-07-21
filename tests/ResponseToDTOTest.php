@@ -3,12 +3,12 @@
 namespace Liuggio\Filler\Test;
 
 use Liuggio\Filler\PropertyTrait;
-use Liuggio\Filler\ResponsePropertyTrait;
+use Liuggio\Filler\HTTPPropertyTrait;
 use Symfony\Component\HttpFoundation\Request;
 
 class DTO
 {
-    use ResponsePropertyTrait;
+    use HTTPPropertyTrait;
 
     private $developer;
     private $lamer;
