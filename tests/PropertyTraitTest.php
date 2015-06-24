@@ -3,8 +3,12 @@
 namespace Liuggio\Filler\Test;
 
 
+use Liuggio\Filler\PropertyTrait;
+
 class PropertyTraitTest extends \PHPUnit_Framework_TestCase
 {
+    use PropertyTrait;
+
     public function testShouldApplyAllThePublicDTOProperties()
     {
         $dto = new Fixtures\DTOPublic('1', '2', 'private');
@@ -23,5 +27,13 @@ class PropertyTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('public-private1-private2', $cart->getOneAndTwoAndThree());
     }
 
+    public function testCopyValuesBetween2Objects()
+    {
+        $from = new Fixtures\DTO('1', '2');
+        $to = new Fixtures\DTO('3', '4');
 
+        $this->fillProperties($from, $to);
+
+        $this->assertEquals($from,$to);
+    }
 } 

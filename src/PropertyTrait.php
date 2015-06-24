@@ -7,15 +7,19 @@ trait PropertyTrait
     /**
      * Set all the properties of this object starting from a DTO with public proprieties
      *
-     * @param mixed $dto
+     * @param mixed $dto The DTO copy from
+     *
+     * @param mixed|null $to The object to copy
      */
-    public function fillProperties($dto)
+    public function fillProperties($dto, &$to = null)
     {
-        $arrToSet = array_intersect_key($this->_getProperties($dto), get_object_vars($this));
+        $to = $to?:$this;
+        $arrToSet = array_intersect_key($this->_getProperties($dto), get_object_vars($to));
         foreach( $arrToSet as $strAttribute => $mixValue ) {
-            $this->{$strAttribute} = $mixValue;
+            $to->{$strAttribute} = $mixValue;
         }
     }
+
 
     /**
      * Expose an array of all the proprieties of this object.

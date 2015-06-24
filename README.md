@@ -112,6 +112,16 @@ Class Controller
 }
 ```
 
+### Copy 2 objects
+
+You can also use it for copy properties between 2 objects
+
+``` php
+use ResponsePropertyTrait;
+$to = new DTOFromRequest();
+$this->fillPropertiesFromRequest($request, $to);
+// the $to object has all the var from the Request
+```
 
 ## Differences?
 

@@ -14,6 +14,12 @@ trait HTTPPropertyTrait
         $this->fillProperties($data);
     }
 
+    public function copyPropertiesFromRequest(Request $request, $to)
+    {
+        $data = $this->_extractData($request);
+        $this->fillProperties($data, $to);
+    }
+
     private function _extractData(Request $request = null, $name = '')
     {
         $method = $request->getMethod();
