@@ -58,4 +58,4 @@ trait HTTPPropertyTrait
 
         return $data;
     }
-} 
+}

@@ -2,7 +2,6 @@
 
 namespace Liuggio\Filler\Test;
 
-use Liuggio\Filler\PropertyTrait;
 use Liuggio\Filler\HTTPPropertyTrait;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -34,7 +33,6 @@ class DTO
         return $this->developer;
     }
 }
-
 
 class ResponseToDTOTest extends \PHPUnit_Framework_TestCase
 {

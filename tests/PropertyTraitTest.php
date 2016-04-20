@@ -2,7 +2,6 @@
 
 namespace Liuggio\Filler\Test;
 
-
 use Liuggio\Filler\PropertyTrait;
 
 class PropertyTraitTest extends \PHPUnit_Framework_TestCase
@@ -34,6 +33,6 @@ class PropertyTraitTest extends \PHPUnit_Framework_TestCase
 
         $this->fillProperties($from, $to);
 
-        $this->assertEquals($from,$to);
+        $this->assertEquals($from, $to);
     }
-} 
+}

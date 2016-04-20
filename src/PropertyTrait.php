@@ -5,21 +5,19 @@ namespace Liuggio\Filler;
 trait PropertyTrait
 {
     /**
-     * Set all the properties of this object starting from a DTO with public proprieties
+     * Set all the properties of this object starting from a DTO with public proprieties.
      *
-     * @param mixed $dto The DTO copy from
-     *
-     * @param mixed|null $to The object to copy
+     * @param mixed      $dto The DTO copy from
+     * @param mixed|null $to  The object to copy
      */
     public function fillProperties($dto, &$to = null)
     {
-        $to = $to?:$this;
+        $to = $to ?: $this;
         $arrToSet = array_intersect_key($this->_getProperties($dto), get_object_vars($to));
-        foreach( $arrToSet as $strAttribute => $mixValue ) {
+        foreach ($arrToSet as $strAttribute => $mixValue) {
             $to->{$strAttribute} = $mixValue;
         }
     }
-
 
     /**
      * Expose an array of all the proprieties of this object.
@@ -35,7 +33,6 @@ trait PropertyTrait
         }
 
         return array_intersect_key($filter, get_object_vars($this));
-
     }
 
     private function _getProperties($dto)
