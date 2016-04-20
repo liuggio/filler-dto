@@ -12,7 +12,7 @@ class DTOPrivateUsingTrait
     private $two;
     private $three;
 
-    function __construct($one, $two, $three)
+    public function __construct($one, $two, $three)
     {
         $this->one = $one;
         $this->two = $two;

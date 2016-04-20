@@ -8,7 +8,7 @@ class DTOPublic
     public $two;
     private $three; // this will not moved because is private!
 
-    function __construct($one, $two, $three)
+    public function __construct($one, $two, $three)
     {
         $this->one = $one;
         $this->two = $two;

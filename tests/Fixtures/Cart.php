@@ -4,7 +4,7 @@ namespace Liuggio\Filler\Test\Fixtures;
 
 use Liuggio\Filler\PropertyTrait;
 
-Class Cart
+class Cart
 {
     use PropertyTrait;
 
