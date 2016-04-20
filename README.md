@@ -135,7 +135,7 @@ More info at: [verraes:decoupling-symfony2-forms-from-entities](http://verraes.n
 
 `composer require liuggio/filler-dto dev-master`
 
-## API (not stable)
+## API
 
 ```
 trait PropertyTrait
