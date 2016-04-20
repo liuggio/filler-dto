@@ -86,11 +86,11 @@ class AddProductData
 Do you want to map an object from the `Request`?
 
 ``` php
-use Liuggio\Filler\ResponsePropertyTrait;
+use Liuggio\Filler\HTTPPropertyTrait;
 
 class StartShippingDTO
 {
-    use ResponsePropertyTrait;
+    use HTTPPropertyTrait;
 
     private $developer;
 
@@ -117,7 +117,7 @@ Class Controller
 You can also use it for copy properties between 2 objects
 
 ``` php
-use ResponsePropertyTrait;
+use HTTPPropertyTrait;
 $to = new DTOFromRequest();
 $this->fillPropertiesFromRequest($request, $to);
 // the $to object has all the var from the Request
@@ -142,8 +142,9 @@ trait PropertyTrait
    fillProperties($dto)
    getAllProperties($filter = null)
 
-trait ResponsePropertyTrait
+trait HTTPPropertyTrait
     fillPropertiesFromRequest(Request $request, $name = '')
+    copyPropertiesFromRequest(Request $request, $to)
 ```
 
 ## Example
